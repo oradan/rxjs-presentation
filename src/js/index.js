@@ -5,3 +5,7 @@ import { Observable, of, from, concatMap, delay , interval, Subscription, Subjec
 import '../css/styles.css';
 import * as utils from  './helpers';
 
+//utils.runOfOperator();
+utils.runCombineLatestWith();
+
+//onclick="myFunction()"
