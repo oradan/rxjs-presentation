@@ -9,42 +9,35 @@
 <body>
   <div class="container">
     <h1 class="text-center text-bg-secondary p-3 my-5">Hello RxJS Lovers :) </h1>
-    <div class="d-flex align-items-start">
-      <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-        <button class="nav-link active" id="home-tab" data-bs-toggle="pill" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Home</button>
-        <button class="nav-link text-uppercase" data-bs-toggle="pill"  type="button" role="tab" aria-selected="false" disabled>Creation Observables</button>
-        <button class="nav-link" id="from-tab" data-bs-toggle="pill" data-bs-target="#from" type="button" role="tab" aria-controls="from" aria-selected="false">from</button>
-        <button class="nav-link" id="of-tab" data-bs-toggle="pill" data-bs-target="#of" type="button" role="tab" aria-controls="of" aria-selected="false">of</button>
-        <button class="nav-link" id="interval-tab" data-bs-toggle="pill" data-bs-target="#interval" type="button" role="tab" aria-controls="interval" aria-selected="false">interval</button>
-        <button class="nav-link text-uppercase" data-bs-toggle="pill"  type="button" role="tab" aria-selected="false" disabled>Combination Observables</button>
-      </div>
-      <div class="tab-content" id="v-pills-tabContent">
-        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-          <div class="d-flex justify-content-center">
-            <img src="src/assets/images/observable-create.png" class="img-fluid">
-          </div>
-        </div>
-        <div class="tab-pane fade" id="from" role="tabpanel" aria-labelledby="from-tab" tabindex="0">
-          <p>from operator</p>
-          <div class="d-flex justify-content-center">
-            <img src="src/assets/images/test.png" class="img-fluid">
-          </div>
-        </div>
-        <div class="tab-pane fade" id="of" role="tabpanel" aria-labelledby="of-tab" tabindex="0">
-          <div class="d-flex mb-3">
-            <h2 class="me-5">Of</h2><button type="button" class="btn btn-outline-secondary">Run the operator</button>
-          </div>
-         
-          <p class="lead mb-3">Emit variable amount of values in a sequence and then emits a complete notification.</p>
-          <div class="d-flex justify-content-center">
-            <img src="src/assets/images/of_marble_diagrame.png" class="img-fluid">
-          </div>
-        </div>
-        <div class="tab-pane fade" id="interval" role="tabpanel" aria-labelledby="interval-tab" tabindex="0">interval operator</div>
+    <div class="d-flex justify-content-center" id="spinner">
+      <div class="spinner-border" role="status">
       </div>
     </div>
-    
+
+    <div class="row d-none" id="books-container">
+      <div class="filter-container d-flex justify-content-between p-3 mb-3">
+        <select class="form-select form-select-sm w-25" aria-label=".form-select-sm example" id="category-selection">
+          <option value='' selected>Select all categories</option>
+        </select>
+        <button type="button" class="btn btn-danger" id="unsubscribe">Unsubscribe: subscription</button>
+        <button type="button" class="btn btn-danger" id="unsubscribe-tk">Unsubscribe: takeUntil()</button>
+        <div class=" text-orange text-center w-25"><strong id="filter-title"></strong></div>
+      </div>
+      <div class="col-md-8">
+        <div id="book-container" class="d-flex flex-row flex-wrap"></div>
+      </div>
+      <div class="col-md-4">
+        <div class="d-flex justify-content-center d-none" id="book-spinner">
+          <div class="spinner-border" role="status">
+          </div>
+        </div>
+        <div id="current-book">
+        </div>
+      </div>
+    </div>
+    <div class="m-3"><strong>Recent aprreciated view</strong></div>
+    <div id="recent-appreciated" class="d-flex mb-5"></div>
+    <div id="recent-appreciated-books" class="d-flex mb-5"></div>
   </div>
 </body>
-
 </html>

@@ -1,6 +1,7 @@
 const path = require('path');
 const { mainModule } = require('process');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
     entry: './src/js/index.js',
@@ -10,11 +11,15 @@ module.exports = {
     },
     mode: "development",
     devServer: {
-        watchFiles:['src/**/*','index.html'],
+        watchFiles:['src/**/*','index.html','book.html'],
         static: "./dist"
     },
     plugins: [
       new HtmlWebpackPlugin({template: './index.html'}),
+      new CopyPlugin(
+        {patterns:[{from:'./src/assets/images',to:'images'}]},
+        {patterns:[{from:'./src/assets/html',to:'html'}]}       
+        )
     ],
     module: {
         rules: [
@@ -43,7 +48,7 @@ module.exports = {
             ]
           },
           {
-            test:/\.(png|svg|jpg|jpeg|gif)$/i,
+            test:/\.(png|svg|jpg|jpeg|gif|PNG)$/i,
             type: 'asset/resource',
             generator: {
               filename: 'images/[name][ext]'
